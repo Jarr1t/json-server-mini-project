@@ -34,7 +34,7 @@ body {
 
 .avatar {
   justify-self: center;
-  height: 12rem;
+  /* height: 12rem; */
   width: auto;
 }
 
