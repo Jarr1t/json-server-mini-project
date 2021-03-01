@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchCall(cardCont);
     let form = document.querySelector("form")
     form.addEventListener("submit", (e) => {
-        e.target.reset();
         e.preventDefault();
         addLang();
+        e.target.reset()
     })
 })
 
@@ -38,20 +38,21 @@ function newCard(lang, container) {
             <span class="likes-count">${lang.likes}</span>
         </p>
     `;
-    
-    newCard.append(likeBtn);
+    let buttonHolder = document.createElement("div")
+    buttonHolder.style.display = "flex"
+    buttonHolder.style.justifyContent = "space-between"
+    newCard.append(buttonHolder)
+    buttonHolder.append(likeBtn, button, updateButton);
     likeBtn.addEventListener("click", (e) => {
-        addLike(e.target.parentElement.id);
+        addLike(e.target.parentElement.parentElement.id);
     })
-    newCard.append(button);
     container.append(newCard);
     button.addEventListener("click", (e) => {
-        const parent = e.target.parentElement.id;
+        const parent = e.target.parentElement.parentElement.id;
         deleteLang(parent);
     });
-    newCard.append(updateButton)
     updateButton.addEventListener("click", (e) => {
-        const parent = e.target.parentElement
+        const parent = e.target.parentElement.parentElement
         let updateForm = document.createElement("form")
         updateForm.className = "add-form"
         updateForm.innerHTML = `
@@ -147,17 +148,21 @@ function updateCard(data, id){
             <span class="likes-count">${data.likes}</span>
         </p>
     `;
-    currentId.append(likeBtn, button, updateButton);
+    let evenNewerDiv = document.createElement("div")
+    evenNewerDiv.append(likeBtn, button, updateButton)
+    evenNewerDiv.style.display = "flex"
+    evenNewerDiv.style.justifyContent = "space-between"
+    currentId.append(evenNewerDiv);
     
     likeBtn.addEventListener("click", (e) => {
-        addLike(e.target.parentElement.id);
+        addLike(e.target.parentElement.parentElement.id);
     })
     button.addEventListener("click", (e) => {
-        const parent = e.target.parentElement.id;
+        const parent = e.target.parentElement.parentElement.id;
         deleteLang(parent);
     });
     updateButton.addEventListener("click", (e) => {
-        const parent = e.target.parentElement
+        const parent = e.target.parentElement.parentElement
         let updateForm = document.createElement("form")
         updateForm.className = "add-form"
         updateForm.innerHTML = `
