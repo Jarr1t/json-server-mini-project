@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 })
 
-function fetchCall (){
-    fetch("http://localhost:3000/languages")
+
+fetch("http://localhost:3000/languages")
     .then(response => response.json())
     .then(data => {
         console.log(data)})
-}
+
 
 function makeNewCard(){
     let nameSearch = document.getElementById("name").value
