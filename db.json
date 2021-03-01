@@ -1,44 +1,14 @@
 {
   "languages": [
     {
-      "id": 3,
-      "name": "CSS",
-      "image": ""
-    },
-    {
       "id": 4,
-      "name": "Ruby",
-      "image": ""
+      "name": "javascript",
+      "image": "https://pluralsight2.imgix.net/paths/images/javascript-542e10ea6e.png"
     },
     {
       "id": 5,
-      "name": "flutter",
-      "image": ""
-    },
-    {
-      "name": "python",
-      "image": "",
-      "id": 6
-    },
-    {
-      "name": "Swift",
-      "image": "Segun",
-      "id": 7
-    },
-    {
-      "name": "Gears",
-      "image": "",
-      "id": 8
-    },
-    {
-      "name": "Flask",
-      "image": "",
-      "id": 9
-    },
-    {
-      "name": "Larval",
-      "image": "",
-      "id": 10
+      "name": "java",
+      "image": "https://upload.wikimedia.org/wikipedia/en/thumb/3/30/Java_programming_language_logo.svg/1200px-Java_programming_language_logo.svg.png"
     }
   ]
 }
