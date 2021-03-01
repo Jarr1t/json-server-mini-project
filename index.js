@@ -11,12 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 })
 
-
-fetch("http://localhost:3000/languages")
+function fetchCall (cardCont){
+    fetch("http://localhost:3000/languages")
     .then(response => response.json())
     .then(data => {
-        console.log(data)})
-
+        console.log(data);
+        data.forEach(lang => newCard(lang, cardCont));
+    });
+}
 
 function newCard(lang, container) {
     
