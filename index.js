@@ -132,6 +132,8 @@ function updateCard(data, id){
     let currentId = document.getElementById(id)
     const button = document.createElement("button");
     const updateButton = document.createElement("button")
+    const likeBtn = document.createElement("button");
+    likeBtn.innerText = "❤";
     updateButton.innerText = "Update"
     updateButton.class = "btn"
     button.id = data.name;
@@ -141,8 +143,58 @@ function updateCard(data, id){
     currentId.innerHTML = `
         <h2>${data.name}</h2>
         <img width="300px" alt="${data.name}" src="${data.image}" class="avatar" />
+        <p class="likes">❤: 
+            <span class="likes-count">${data.likes}</span>
+        </p>
     `;
-    currentId.append(button, updateButton)
+    currentId.append(likeBtn, button, updateButton);
+    
+    likeBtn.addEventListener("click", (e) => {
+        addLike(e.target.parentElement.id);
+    })
+    button.addEventListener("click", (e) => {
+        const parent = e.target.parentElement.id;
+        deleteLang(parent);
+    });
+    updateButton.addEventListener("click", (e) => {
+        const parent = e.target.parentElement
+        let updateForm = document.createElement("form")
+        updateForm.className = "add-form"
+        updateForm.innerHTML = `
+        <h3>Change Language</h3>
+
+        <input
+          id ="name"
+          required = "true"
+          type="text"
+          name="name"
+          value=""
+          placeholder="Enter new Language"
+          class="input-text"
+        />
+        <br />
+        <input
+          id = "image"
+          type="text"
+          name="image"
+          value=""
+          placeholder="Enter new image"
+          class="input-text"
+        />
+        <br />
+        <input
+          type="submit"
+          name="submit"
+          value="update"
+          class="submit"
+        />
+    `
+    parent.innerHTML = ""
+    parent.append(updateForm)
+    updateForm.addEventListener("submit", (e) => {
+        let parentId = e.target.parentElement.id;
+        updateLanguage(e, parentId)})
+    })
 }
 
 function deleteLang(id) {
