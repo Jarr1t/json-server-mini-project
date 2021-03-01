@@ -29,6 +29,26 @@
       "name": "python",
       "image": "",
       "id": 6
+    },
+    {
+      "name": "Swift",
+      "image": "Segun",
+      "id": 7
+    },
+    {
+      "name": "Gears",
+      "image": "",
+      "id": 8
+    },
+    {
+      "name": "Flask",
+      "image": "",
+      "id": 9
+    },
+    {
+      "name": "Larval",
+      "image": "",
+      "id": 10
     }
   ]
 }
