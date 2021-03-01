@@ -21,22 +21,36 @@ function fetchCall (cardCont){
 }
 
 function newCard(lang, container) {
-    container.innerHTML += `
-        <div id="${lang.id}" class="card">
-            <h2>${lang.name}</h2>
-            <img alt="${lang.name}" src="${lang.image}" class="avatar" />
-            <button id="${lang.name}" class="btn">Remove</button>
-        </div>`;
-    const button = document.getElementById(lang.name);
+    
+    const button = document.createElement("button");
+    button.id = lang.name;
+    button.class = "btn";
+    button.innerText = "Remove";
+    const newCard = document.createElement("div");
+    newCard.id = lang.id;
+    newCard.className = "card";
+    newCard.innerHTML = `
+        <h2>${lang.name}</h2>
+        <img alt="${lang.name}" src="${lang.image}" class="avatar" />
+    `;
+    newCard.append(button);
+    container.append(newCard);
     button.addEventListener("click", (e) => {
-        const parent = e.target.parentElement().id;
-        console.log("click")
+        const parent = e.target.parentElement.id;
         deleteLang(parent);
     });
 }
 
 function deleteLang(id) {
-    console.log(id);
+    const options = {
+        method: "DELETE",
+        headers : {
+            "Content-Type": "application/json"
+        }
+    }
+    const card = document.getElementById(id);
+    card.remove();
+    fetch(`http://localhost:3000/languages/${id}`, options);
 }
 
 function addLang(){
