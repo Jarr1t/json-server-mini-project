@@ -1,16 +1,6 @@
 {
   "languages": [
     {
-      "id": 1,
-      "name": "javaScript",
-      "image": "https://pluralsight2.imgix.net/paths/images/javascript-542e10ea6e.png"
-    },
-    {
-      "id": 2,
-      "name": "HTML",
-      "image": ""
-    },
-    {
       "id": 3,
       "name": "CSS",
       "image": ""
